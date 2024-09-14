@@ -80,10 +80,10 @@ public class RobotContainer {
     m_operatorController.a().onTrue(LauncherCommands.FeederOutput(0));
 
     
-    m_operatorController.leftTrigger().whileTrue(LauncherCommands.LauncherOutput(1));
-    m_operatorController.rightTrigger().whileTrue(LauncherCommands.LauncherOutput(-1));
-    m_operatorController.leftBumper().whileTrue(LauncherCommands.FeederOutput(1));
-    m_operatorController.rightBumper().whileTrue(LauncherCommands.FeederOutput(-1));
+    m_operatorController.leftBumper().whileTrue(LauncherCommands.LauncherOutput(1));
+    m_operatorController.rightBumper().whileTrue(LauncherCommands.LauncherOutput(-1));
+    m_operatorController.leftTrigger().whileTrue(LauncherCommands.FeederOutput(1));
+    m_operatorController.rightTrigger().whileTrue(LauncherCommands.FeederOutput(-1));
 
     
   }
