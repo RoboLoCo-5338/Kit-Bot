@@ -28,7 +28,7 @@ public class LaunchNote extends Command {
     // indicate that this command requires the launcher system
     addRequirements(m_launcher);
   }
-
+  
   // The initialize method is called when the command is initially scheduled.
   @Override
   public void initialize() {
