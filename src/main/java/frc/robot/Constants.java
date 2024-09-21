@@ -49,4 +49,11 @@ public final class Constants {
 
     public static final double kLauncherDelay = 1;
   }
+
+  public static class AutoConstants{
+    //constants for auto code
+    public static final double driveTime = 2.0;
+    public static final double delay = 1.0;
+    public static final double driveSpeed = 0.5;
+  }
 }

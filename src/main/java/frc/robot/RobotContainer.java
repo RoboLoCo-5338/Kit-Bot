@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.LauncherConstants;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.AutoCommands;
 import frc.robot.commands.Autos;
 import frc.robot.commands.LaunchNote;
 import frc.robot.commands.PrepareLaunch;
@@ -59,8 +60,8 @@ public class RobotContainer {
     
         new RunCommand(
             () ->
-                m_drivetrain.arcadeDrive(
-                    -m_driverController.getLeftY(), -m_driverController.getRightX()),
+                m_drivetrain.tankDrive(
+                    -m_driverController.getLeftY(), -m_driverController.getRightY()),
             m_drivetrain));
 
     /*Create an inline sequence to run when the operator presses and holds the A (green) button. Run the PrepareLaunch
@@ -76,14 +77,19 @@ public class RobotContainer {
     // Set up a binding to run the intake command while the operator is pressing and holding the
     // left Bumper
 
-    m_operatorController.a().onTrue(LauncherCommands.LauncherOutput(0));
-    m_operatorController.a().onTrue(LauncherCommands.FeederOutput(0));
+    //changed controls, check them at practice field
 
-    
-    m_operatorController.leftBumper().whileTrue(LauncherCommands.LauncherOutput(1));
+    //stop shooter
+    m_operatorController.leftTrigger().onTrue(LauncherCommands.LauncherOutput(0));
+    m_operatorController.leftTrigger().onTrue(LauncherCommands.FeederOutput(0));
+
+    //intake
+    m_operatorController.leftBumper().whileTrue(LauncherCommands.LauncherOutput(-1));
+    m_operatorController.leftBumper().whileTrue(LauncherCommands.FeederOutput(1));
+
+    //outake
+    m_operatorController.rightTrigger().whileTrue(LauncherCommands.LauncherOutput(1));
     m_operatorController.rightBumper().whileTrue(LauncherCommands.LauncherOutput(-1));
-    m_operatorController.leftTrigger().whileTrue(LauncherCommands.FeederOutput(1));
-    m_operatorController.rightTrigger().whileTrue(LauncherCommands.FeederOutput(-1));
 
     
   }
@@ -95,6 +101,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_drivetrain);
+    return AutoCommands.driveAndShootAuto();
   }
 }
