@@ -19,6 +19,7 @@ import frc.robot.commands.PrepareLaunch;
 
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.CANLauncher;
+import frc.robot.subsystems.PneumaticsPiston;
 import frc.robot.commands.LauncherCommands;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,6 +36,7 @@ public class RobotContainer {
   public static final CANDrivetrain m_drivetrain = new CANDrivetrain();
   // private final PWMLauncher m_launcher = new PWMLauncher();
   public static final CANLauncher m_launcher = new CANLauncher();
+  public static final PneumaticsPiston m_piston = new PneumaticsPiston();
   public static double speedUp = 0.0;
 
   /*The gamepad provided in the KOP shows up like an XBox controller if the mode switch is set to X mode using the

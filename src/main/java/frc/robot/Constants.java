@@ -50,6 +50,11 @@ public final class Constants {
     public static final double kLauncherDelay = 1;
   }
 
+  public static class PneumaticsConstants{
+    public static final int kforwardChannel = 1;
+    public static final int kreverseChannel = 2; //TODO: Update these values
+  }
+
   public static class AutoConstants{
     //constants for auto code
     public static final double driveTime = 6.0;
