@@ -13,9 +13,7 @@ import frc.robot.commands.AutoCommands;
 // import frc.robot.subsystems.PWMLauncher;
 
 import frc.robot.subsystems.CANDrivetrain;
-import frc.robot.subsystems.CANLauncher;
 import frc.robot.subsystems.Pneumatics;
-import frc.robot.commands.LauncherCommands;
 import frc.robot.commands.PneumaticCommands;
 
 /**
@@ -30,7 +28,6 @@ public class RobotContainer {
 	// private final PWMDrivetrain m_drivetrain = new PWMDrivetrain();
 	public static final CANDrivetrain m_drivetrain = new CANDrivetrain();
 	// private final PWMLauncher m_launcher = new PWMLauncher();
-	public static final CANLauncher m_launcher = new CANLauncher();
 	public static final Pneumatics m_piston = new Pneumatics();
 	public static double speedUp = 0.0;
 
@@ -82,28 +79,6 @@ public class RobotContainer {
 		// left Bumper
 
 		// changed controls, check them at practice field
-
-		// stop shooter
-		m_operatorController.leftBumper().onTrue(LauncherCommands.LauncherOutput(0));
-		m_operatorController.leftBumper().onTrue(LauncherCommands.FeederOutput(0));
-
-		// intake
-		m_operatorController.leftTrigger().onTrue(LauncherCommands.LauncherOutput(-1));
-		m_operatorController.leftTrigger().onTrue(LauncherCommands.FeederOutput(-1));
-		m_operatorController.leftTrigger().onFalse(LauncherCommands.LauncherOutput(0));
-		m_operatorController.leftTrigger().onFalse(LauncherCommands.FeederOutput(0));
-
-		// outake
-		m_operatorController.rightTrigger().onTrue(LauncherCommands.LauncherOutput(1));
-		m_operatorController.rightBumper().onTrue(LauncherCommands.FeederOutput(1));
-		m_operatorController.rightTrigger().onFalse(LauncherCommands.LauncherOutput(0));
-		m_operatorController.rightBumper().onFalse(LauncherCommands.FeederOutput(0));
-
-		m_operatorController.a().onTrue(LauncherCommands.LauncherOutput(0.3));
-		m_operatorController.a().onTrue(LauncherCommands.FeederOutput(0.3));
-		m_operatorController.a().onFalse(LauncherCommands.LauncherOutput(0));
-		m_operatorController.a().onFalse(LauncherCommands.FeederOutput(0));
-
 		// m_driverController.rightTrigger().onFalse( new InstantCommand(()->
 		// {speedUp=0.0;}));
 
@@ -111,6 +86,7 @@ public class RobotContainer {
 		m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
 		m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
 		m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());
+		m_operatorController.y().onTrue(PneumaticCommands.solenoidToggle());
 	}
 
 	/**
@@ -120,6 +96,6 @@ public class RobotContainer {
 	 */
 	public Command getAutonomousCommand() {
 		// An example command will be run in autonomous
-		return AutoCommands.driveAndShootAuto();
+		return null;
 	}
 }

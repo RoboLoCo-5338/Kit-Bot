@@ -9,10 +9,6 @@ public class Pneumatics extends SubsystemBase {
 	DoubleSolenoid doubleSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, PneumaticConstants.kForwardChannel,
 			PneumaticConstants.kReverseChannel);
 
-	public Pneumatics() {
-		setSolenoidOff();
-	}
-
 	// may want to add a toggle option
 	public void extendPiston() {
 		doubleSolenoid.set(DoubleSolenoid.Value.kForward);

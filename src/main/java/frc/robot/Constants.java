@@ -55,7 +55,7 @@ public final class Constants {
 	}
 
 	public static class PneumaticConstants {
-		public static final int kForwardChannel = 1; // TODO: Update these channel values
+		public static final int kForwardChannel = 0; // TODO: Update these channel values
 		public static final int kReverseChannel = 2;
 	}
 
