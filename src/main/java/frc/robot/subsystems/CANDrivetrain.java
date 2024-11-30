@@ -28,7 +28,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class CANDrivetrain extends SubsystemBase {
 	/*
 	 * Class member variables. These variables represent things the class needs to
-	 * keep track of and use between different method calls.
 	 */
 	DifferentialDrive m_drivetrain;
 

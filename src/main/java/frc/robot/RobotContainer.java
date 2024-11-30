@@ -14,8 +14,9 @@ import frc.robot.commands.AutoCommands;
 
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.CANLauncher;
-import frc.robot.subsystems.PneumaticsPiston;
+import frc.robot.subsystems.Pneumatics;
 import frc.robot.commands.LauncherCommands;
+import frc.robot.commands.PneumaticCommands;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -30,7 +31,7 @@ public class RobotContainer {
 	public static final CANDrivetrain m_drivetrain = new CANDrivetrain();
 	// private final PWMLauncher m_launcher = new PWMLauncher();
 	public static final CANLauncher m_launcher = new CANLauncher();
-	public static final PneumaticsPiston m_piston = new PneumaticsPiston();
+	public static final Pneumatics m_piston = new Pneumatics();
 	public static double speedUp = 0.0;
 
 	/*
@@ -105,7 +106,11 @@ public class RobotContainer {
 
 		// m_driverController.rightTrigger().onFalse( new InstantCommand(()->
 		// {speedUp=0.0;}));
-
+  
+    // piston
+    m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
+    m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
+    m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());
 	}
 
 	/**

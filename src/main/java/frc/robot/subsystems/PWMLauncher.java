@@ -23,8 +23,6 @@ public class PWMLauncher extends SubsystemBase {
 	/**
 	 * This method is an example of the 'subsystem factory' style of command
 	 * creation. A method inside the subsytem is created to return an instance of a
-	 * command. This works for commands that operate on only that subsystem, a
-	 * similar approach can be done in RobotContainer for commands that need to span
 	 * subsystems. The Subsystem class has helper methods, such as the startEnd
 	 * method used here, to create these commands.
 	 */

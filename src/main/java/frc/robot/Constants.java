@@ -54,9 +54,9 @@ public final class Constants {
 		public static final double kLauncherDelay = 1;
 	}
 
-	public static class PneumaticsConstants {
-		public static final int kforwardChannel = 1;
-		public static final int kreverseChannel = 2; // TODO: Update these values
+	public static class PneumaticConstants {
+		public static final int kForwardChannel = 1; // TODO: Update these channel values
+		public static final int kReverseChannel = 2; 
 	}
 
 	public static class AutoConstants {
