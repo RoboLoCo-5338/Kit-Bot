@@ -106,11 +106,11 @@ public class RobotContainer {
 
 		// m_driverController.rightTrigger().onFalse( new InstantCommand(()->
 		// {speedUp=0.0;}));
-  
-    // piston
-    m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
-    m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
-    m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());
+
+		// piston
+		m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
+		m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
+		m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());
 	}
 
 	/**
