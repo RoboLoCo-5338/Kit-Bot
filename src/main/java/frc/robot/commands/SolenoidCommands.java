@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.RobotContainer;
 
 public class SolenoidCommands {
-    public static Command toggleSolenoid(){
-        return new InstantCommand(RobotContainer.m_piston::togglePiston, RobotContainer.m_piston);
-    }
+	public static Command toggleSolenoid() {
+		return new InstantCommand(RobotContainer.m_piston::togglePiston, RobotContainer.m_piston);
+	}
 }

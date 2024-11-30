@@ -5,60 +5,64 @@
 package frc.robot;
 
 /**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants. This class should not be used for any other purpose. All constants should be declared
- * globally (i.e. public static). Do not put anything functional in this class.
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
  *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static class OperatorConstants {
-    // Port numbers for driver and operator gamepads. These correspond with the numbers on the USB
-    // tab of the DriverStation
-    public static final int kDriverControllerPort = 0;
-    public static final int kOperatorControllerPort = 1;
-  }
+	public static class OperatorConstants {
+		// Port numbers for driver and operator gamepads. These correspond with the
+		// numbers on the USB
+		// tab of the DriverStation
+		public static final int kDriverControllerPort = 0;
+		public static final int kOperatorControllerPort = 1;
+	}
 
-  public static class DrivetrainConstants {
-    // PWM ports/CAN IDs for motor controllers
-    public static final int kLeftRearID = 1;
-    public static final int kLeftFrontID = 0;
-    public static final int kRightRearID = 3;
-    public static final int kRightFrontID = 2;
+	public static class DrivetrainConstants {
+		// PWM ports/CAN IDs for motor controllers
+		public static final int kLeftRearID = 1;
+		public static final int kLeftFrontID = 0;
+		public static final int kRightRearID = 3;
+		public static final int kRightFrontID = 2;
 
-    // Current limit for drivetrain motors
-    public static final int kCurrentLimit = 60;
-  }
+		// Current limit for drivetrain motors
+		public static final int kCurrentLimit = 60;
+	}
 
-  public static class LauncherConstants {
-    // PWM ports/CAN IDs for motor controllers
-    public static final int kFeederID = 6;
-    public static final int kLauncherID = 7;
+	public static class LauncherConstants {
+		// PWM ports/CAN IDs for motor controllers
+		public static final int kFeederID = 6;
+		public static final int kLauncherID = 7;
 
-    // Current limit for launcher and feed wheels
-    public static final int kLauncherCurrentLimit = 80;
-    public static final int kFeedCurrentLimit = 80;
+		// Current limit for launcher and feed wheels
+		public static final int kLauncherCurrentLimit = 80;
+		public static final int kFeedCurrentLimit = 80;
 
-    // Speeds for wheels when intaking and launching. Intake speeds are negative to run the wheels
-    // in reverse
-    public static final double kLauncherSpeed = 1;
-    public static final double kLaunchFeederSpeed = 1;
-    public static final double kIntakeLauncherSpeed = -1;
-    public static final double kIntakeFeederSpeed = -.2;
+		// Speeds for wheels when intaking and launching. Intake speeds are negative to
+		// run the wheels
+		// in reverse
+		public static final double kLauncherSpeed = 1;
+		public static final double kLaunchFeederSpeed = 1;
+		public static final double kIntakeLauncherSpeed = -1;
+		public static final double kIntakeFeederSpeed = -.2;
 
-    public static final double kLauncherDelay = 1;
-  }
+		public static final double kLauncherDelay = 1;
+	}
 
-  public static class PneumaticsConstants{
-    public static final int kforwardChannel = 1;
-    public static final int kreverseChannel = 2; //TODO: Update these values
-  }
+	public static class PneumaticsConstants {
+		public static final int kforwardChannel = 1;
+		public static final int kreverseChannel = 2; // TODO: Update these values
+	}
 
-  public static class AutoConstants{
-    //constants for auto code
-    public static final double driveTime = 6.0;
-    public static final double delay = 2.0;
-    public static final double driveSpeed = -0.5;
-  }
+	public static class AutoConstants {
+		// constants for auto code
+		public static final double driveTime = 6.0;
+		public static final double delay = 2.0;
+		public static final double driveSpeed = -0.5;
+	}
 }
