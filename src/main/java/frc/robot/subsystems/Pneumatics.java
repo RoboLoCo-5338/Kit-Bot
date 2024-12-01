@@ -13,11 +13,11 @@ public class Pneumatics extends SubsystemBase {
 	}
 
 	public void retractPiston() {
-		RobotContainer.m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		RobotContainer.m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 
 	public void setSolenoidOff() {
-		RobotContainer.m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+		RobotContainer.m_doubleSolenoid.set(DoubleSolenoid.Value.kOff);
 	}
 
 	public void toggleSolenoid() {
