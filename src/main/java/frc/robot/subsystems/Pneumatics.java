@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Pneumatics extends SubsystemBase {
-	DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, PneumaticConstants.kForwardChannel,
-			PneumaticConstants.kReverseChannel);
+	DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM,
+			PneumaticConstants.kForwardChannel, PneumaticConstants.kReverseChannel);
 
 	// may want to add a toggle option
 	public void extendPiston() {
