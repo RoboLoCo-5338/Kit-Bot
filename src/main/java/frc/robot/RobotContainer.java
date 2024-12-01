@@ -4,13 +4,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
-// import frc.robot.subsystems.PWMDrivetrain;
-// import frc.robot.subsystems.PWMLauncher;
-
+import frc.robot.Constants.PneumaticConstants;
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.Pneumatics;
 import frc.robot.commands.PneumaticCommands;
@@ -24,22 +25,24 @@ import frc.robot.commands.PneumaticCommands;
  */
 public class RobotContainer {
 	// The robot's subsystems are defined here.
-	// private final PWMDrivetrain m_drivetrain = new PWMDrivetrain();
+
 	public static final CANDrivetrain m_drivetrain = new CANDrivetrain();
-	// private final PWMLauncher m_launcher = new PWMLauncher();
+
 	public static final Pneumatics m_piston = new Pneumatics();
 	public static double speedUp = 0.0;
+	public static DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(15, PneumaticsModuleType.CTREPCM,
+			PneumaticConstants.kForwardChannel, PneumaticConstants.kReverseChannel);
+	// public static Compressor m_compressor = new Compressor(PneumaticsModuleType.CTREPCM);
 
 	/*
 	 * The gamepad provided in the KOP shows up like an XBox controller if the mode
-	 * switch is set to X mode using the switch on the top.
 	 */
 	public static final CommandXboxController m_driverController = new CommandXboxController(
 			OperatorConstants.kDriverControllerPort);
 	private final CommandXboxController m_operatorController = new CommandXboxController(
 			OperatorConstants.kOperatorControllerPort);
 
-	/**
+	/*
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
 	 */
 	public RobotContainer() {
@@ -61,27 +64,11 @@ public class RobotContainer {
 						m_driverController.getRightX() * (0.5 + speedUp)), m_drivetrain));
 
 		/*
-		 * Create an inline sequence to run when the operator presses and holds the A
-		 * (green) button. Run the PrepareLaunch command for 1 seconds and then run the
-		 * LaunchNote command
+		 * Extends piston when operator presses the "b" button
+		 * Retracts piston when operator presses the "a" button
+		 * Turns the solenoid off when the operator presses the "x" button
+		 * Toggles the solenoid (switches the solenoid) between pushing and pulling air in the piston when the operator presses the "y" button
 		 */
-		// m_operatorController
-		// .a()
-		// .whileTrue(
-		// new PrepareLaunch(m_launcher)
-		// .withTimeout(LauncherConstants.kLauncherDelay)
-		// .andThen(new LaunchNote(m_launcher))
-		// .handleInterrupt(() -> m_launcher.stop()));
-
-		// Set up a binding to run the intake command while the operator is pressing and
-		// holding the
-		// left Bumper
-
-		// changed controls, check them at practice field
-		// m_driverController.rightTrigger().onFalse( new InstantCommand(()->
-		// {speedUp=0.0;}));
-
-		// piston
 		m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
 		m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
 		m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());

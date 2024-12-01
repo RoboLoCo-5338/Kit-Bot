@@ -12,10 +12,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.controls.Follower;
 
-//phoenix 5 imports
-// import com.ctre.phoenix.motorcontrol.can.TalonFX;
-// import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /* This class declares the subsystem for the robot drivetrain if controllers are connected via CAN. Make sure to go to
@@ -43,10 +39,6 @@ public class CANDrivetrain extends SubsystemBase {
 	 */
 	public CANDrivetrain() {
 
-		// phoenix 5 code is deprecated, current code used SparkMaxes(?) so I will write
-		// code for both phoenix 6 and 5
-
-		// phoenix 6 code
 		TalonFX leftFront = new TalonFX(kLeftFrontID);
 		TalonFX leftRear = new TalonFX(kLeftRearID);
 		TalonFX rightFront = new TalonFX(kRightFrontID);
@@ -56,27 +48,6 @@ public class CANDrivetrain extends SubsystemBase {
 		rightRear.setControl(new Follower(rightFront.getDeviceID(), false));
 		leftFront.setSafetyEnabled(true);
 		rightFront.setSafetyEnabled(true);
-
-		// phoenix 5 code
-		// TalonFX leftFront = new TalonFX(kLeftFrontID);
-		// TalonFX leftRear = new TalonFX(kLeftRearID);
-		// TalonFX rightFront = new TalonFX(kRightFrontID);
-		// TalonFX rightRear = new TalonFX(kRightRearID);
-		// leftFront.setInverted(true);
-		// leftRear.follow(leftFront);
-		// rightRear.follow(rightFront);
-
-		/*
-		 * Sets current limits for the drivetrain motors. This helps reduce the
-		 * likelihood of wheel spin, reduces motor heating at stall (Drivetrain pushing
-		 * against something) and helps maintain battery voltage under heavy demand
-		 */
-
-		// Set the rear motors to follow the front motors.
-
-		// Put the front motors into the differential drive object. This will control
-		// all 4 motors with
-		// the rears set to follow the fronts
 
 		m_drivetrain = new DifferentialDrive(leftFront, rightFront);
 	}
