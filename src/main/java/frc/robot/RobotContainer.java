@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,7 +31,8 @@ public class RobotContainer {
 	public static double speedUp = 0.0;
 	public static DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(15, PneumaticsModuleType.CTREPCM,
 			PneumaticConstants.kForwardChannel, PneumaticConstants.kReverseChannel);
-	// public static Compressor m_compressor = new Compressor(PneumaticsModuleType.CTREPCM);
+	// public static Compressor m_compressor = new
+	// Compressor(PneumaticsModuleType.CTREPCM);
 
 	/*
 	 * The gamepad provided in the KOP shows up like an XBox controller if the mode
@@ -64,10 +64,11 @@ public class RobotContainer {
 						m_driverController.getRightX() * (0.5 + speedUp)), m_drivetrain));
 
 		/*
-		 * Extends piston when operator presses the "b" button
-		 * Retracts piston when operator presses the "a" button
-		 * Turns the solenoid off when the operator presses the "x" button
-		 * Toggles the solenoid (switches the solenoid) between pushing and pulling air in the piston when the operator presses the "y" button
+		 * Extends piston when operator presses the "b" button Retracts piston when
+		 * operator presses the "a" button Turns the solenoid off when the operator
+		 * presses the "x" button Toggles the solenoid (switches the solenoid) between
+		 * pushing and pulling air in the piston when the operator presses the "y"
+		 * button
 		 */
 		m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
 		m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());

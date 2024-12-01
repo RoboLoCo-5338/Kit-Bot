@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.RobotContainer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -100,9 +99,12 @@ public class Robot extends TimedRobot {
 		RobotContainer.speedUp = RobotContainer.m_driverController.getRightTriggerAxis() / 2;
 		SmartDashboard.putNumber("Speed up", RobotContainer.speedUp);
 		// // Not sure if these should be here or somewhere else
-		// SmartDashboard.putNumber("Compressor Current", RobotContainer.m_compressor.getCurrent());
-		// SmartDashboard.putBoolean("Is Compressor Enabled?", RobotContainer.m_compressor.isEnabled());
-		// SmartDashboard.putBoolean("Is Compressor Full?", RobotContainer.m_compressor.getPressureSwitchValue());
+		// SmartDashboard.putNumber("Compressor Current",
+		// RobotContainer.m_compressor.getCurrent());
+		// SmartDashboard.putBoolean("Is Compressor Enabled?",
+		// RobotContainer.m_compressor.isEnabled());
+		// SmartDashboard.putBoolean("Is Compressor Full?",
+		// RobotContainer.m_compressor.getPressureSwitchValue());
 	}
 
 	@Override
