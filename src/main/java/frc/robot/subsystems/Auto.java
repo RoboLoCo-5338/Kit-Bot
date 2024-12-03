@@ -11,10 +11,9 @@ public class Auto {
 	public static Command getAuto(RobotContainer robot) {
 
 		return new SequentialCommandGroup( // basic auto to leave zone.
-			PneumaticCommands.pistonExtend(),
-			new WaitCommand(2), new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(-0.5, -0.5)),
-			PneumaticCommands.pistonRetract(),
-			new WaitCommand(2), new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(0, 0))
-		);
+				PneumaticCommands.pistonExtend(), new WaitCommand(2),
+				new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(-0.5, -0.5)),
+				PneumaticCommands.pistonRetract(), new WaitCommand(2),
+				new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(0, 0)));
 	}
 }
