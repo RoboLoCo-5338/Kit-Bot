@@ -30,8 +30,6 @@ public class RobotContainer {
 
 	public static final Pneumatics m_piston = new Pneumatics();
 	public static double speedUp = 0.0;
-	public static DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(15, PneumaticsModuleType.CTREPCM,
-			PneumaticConstants.kForwardChannel, PneumaticConstants.kReverseChannel);
 	// public static Compressor m_compressor = new
 	// Compressor(PneumaticsModuleType.CTREPCM);
 
@@ -61,8 +59,8 @@ public class RobotContainer {
 		// Set the default command for the drivetrain to drive using the joysticks
 		m_drivetrain.setDefaultCommand(
 
-				new RunCommand(() -> m_drivetrain.arcadeDrive(m_driverController.getLeftY() * (0.5 + speedUp),
-						m_driverController.getRightX() * (0.5 + speedUp)), m_drivetrain));
+				new RunCommand(() -> m_drivetrain.tankDrive(m_driverController.getLeftY() * (0.5 + speedUp),
+						m_driverController.getRightY() * (0.5 + speedUp)), m_drivetrain));
 
 		/*
 		 * Extends piston when operator presses the "b" button Retracts piston when
@@ -71,8 +69,8 @@ public class RobotContainer {
 		 * pushing and pulling air in the piston when the operator presses the "y"
 		 * button
 		 */
-		m_operatorController.b().onTrue(PneumaticCommands.pistonExtend());
-		m_operatorController.a().onTrue(PneumaticCommands.pistonRetract());
+		m_operatorController.leftTrigger().onTrue(PneumaticCommands.pistonExtend());
+		m_operatorController.rightTrigger().onTrue(PneumaticCommands.pistonRetract());
 		m_operatorController.x().onTrue(PneumaticCommands.solenoidOff());
 		m_operatorController.y().onTrue(PneumaticCommands.solenoidToggle());
 	}
