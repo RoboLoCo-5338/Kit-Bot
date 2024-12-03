@@ -6,11 +6,25 @@ package frc.robot.subsystems;
 
 import static frc.robot.Constants.DrivetrainConstants.*;
 
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
+import edu.wpi.first.math.estimator.DifferentialDrivePoseEstimator;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
+import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
+import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
+import edu.wpi.first.math.kinematics.proto.DifferentialDriveWheelSpeedsProto;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.controls.Follower;
+// import com.pathplanner.con;
+import com.pathplanner.lib.commands.*;
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.controllers.PPLTVController;
+import com.pathplanner.lib.controllers.PPRamseteController;
+import com.pathplanner.lib.util.ReplanningConfig;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,7 +40,10 @@ public class CANDrivetrain extends SubsystemBase {
 	 * Class member variables. These variables represent things the class needs to
 	 */
 	DifferentialDrive m_drivetrain;
-
+	DifferentialDriveOdometry m_odometry;
+	DifferentialDriveKinematics m_kine;
+	// DifferentialDriveWheelSpeeds m_speed;
+	// DifferentialDrive
 	TalonFX leftFront;
 	TalonFX leftRear;
 	TalonFX rightFront;
@@ -48,8 +65,15 @@ public class CANDrivetrain extends SubsystemBase {
 		rightRear.setControl(new Follower(rightFront.getDeviceID(), false));
 		leftFront.setSafetyEnabled(true);
 		rightFront.setSafetyEnabled(true);
-
+		
 		m_drivetrain = new DifferentialDrive(leftFront, rightFront);
+		// new DifferentialDriveOdometry()
+		//IMPORTANT TODO: there appears to be NO gyposcope in this code, which is NEEDED for auto to work. I just put a placeholder `new Rotation(0,0)` as the gyroscopes value.
+		m_odometry = new DifferentialDriveOdometry(new Rotation2d(0,0), leftRear.getPosition().getValue(), rightRear.getPosition().getValue());
+		// m_kine = new DifferentialDriveKinematics(null)
+		// new SimpleMotorFeedforward(kLeftFrontID, kCurrentLimit).
+		// m_speed.desaturate
+		// m_speed
 	}
 
 	/*
@@ -79,4 +103,8 @@ public class CANDrivetrain extends SubsystemBase {
 		 * drivetrain is simple so we don't have anything to put here
 		 */
 	}
+	public void updateOdometry() {
+	// 	m_odometry.update(
+	// 		m_gyro.getRotation2d(), m_leftEncoder.getDistance(), m_rightEncoder.getDistance());
+	  } // need gyro for this to work
 }
