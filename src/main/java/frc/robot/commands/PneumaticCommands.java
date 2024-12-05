@@ -21,6 +21,6 @@ public class PneumaticCommands {
 		return new InstantCommand(() -> RobotContainer.m_piston.toggleSolenoid());
 	}
 
-    public class pistonExtend {
-    }
+	public class pistonExtend {
+	}
 }
