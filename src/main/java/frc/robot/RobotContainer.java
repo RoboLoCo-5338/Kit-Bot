@@ -13,8 +13,8 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.PneumaticConstants;
 import frc.robot.subsystems.CANDrivetrain;
 import frc.robot.subsystems.Pneumatics;
+import frc.robot.commands.Auto;
 import frc.robot.commands.PneumaticCommands;
-import frc.robot.subsystems.Auto;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -83,6 +83,6 @@ public class RobotContainer {
 
 	public Command getAutonomousCommand() {
 		// An example command will be run in autonomous
-		return Auto.getAuto(this);
+		return Auto.exampleAuto();
 	}
 }
