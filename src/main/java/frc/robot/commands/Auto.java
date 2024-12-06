@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.CANDrivetrain;
 
 // import frc.robot.subsystems.CANDrivetrain;
 
@@ -15,12 +14,10 @@ public final class Auto {
 	public static Command exampleAuto() {
 		/**
 		 * RunCommand is a helper class that creates a command from a single method, in
-		 * this case we
-		 * pass it the arcadeDrive method to drive straight back at half power. We
-		 * modify that command
-		 * with the .withTimeout(1) decorator to timeout after 1 second, and use the
-		 * .andThen decorator
-		 * to stop the drivetrain after the first command times out
+		 * this case we pass it the arcadeDrive method to drive straight back at half
+		 * power. We modify that command with the .withTimeout(1) decorator to timeout
+		 * after 1 second, and use the .andThen decorator to stop the drivetrain after
+		 * the first command times out
 		 */
 		return new SequentialCommandGroup(
 				PneumaticCommands.pistonExtend(), new WaitCommand(2),
