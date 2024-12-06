@@ -22,14 +22,24 @@ public final class Auto {
 		 * .andThen decorator
 		 * to stop the drivetrain after the first command times out
 		 */
-		return new SequentialCommandGroup(PneumaticCommands.pistonExtend(), new WaitCommand(2),
-				new RunCommand(() -> RobotContainer.m_drivetrain.arcadeDrive(-.5, 0), RobotContainer.m_drivetrain)
+		return new SequentialCommandGroup(
+				PneumaticCommands.pistonExtend(), new WaitCommand(2),
+				new RunCommand(() -> RobotContainer.m_drivetrain.tankDrive(.5, .5), RobotContainer.m_drivetrain)
 						.withTimeout(1),
-				new InstantCommand(() -> RobotContainer.m_drivetrain.arcadeDrive(0, 0), RobotContainer.m_drivetrain),
+				new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(0, 0), RobotContainer.m_drivetrain),
 				PneumaticCommands.pistonRetract());
 		// return new InstantCommand(() -> PneumaticCommands.pistonExtend()).andThen(new
 		// RunCommand(() -> drivetrain.arcadeDrive(-.5, 0), drivetrain)
 		// .withTimeout(1)
 		// .andThen(new RunCommand(() -> drivetrain.arcadeDrive(0, 0), drivetrain)));
 	}
+	// public static Command auto() {
+	// 	return new SequentialCommandGroup(
+	// 			new RunCommand(() -> RobotContainer.m_drivetrain.tankDrive(.5, .5), RobotContainer.m_drivetrain)
+	// 					.withTimeout(0.33),
+	// 			new RunCommand(() -> RobotContainer.m_drivetrain.tankDrive(0, -.5), RobotContainer.m_drivetrain)
+	// 					.withTimeout(0.1);
+	// 			new InstantCommand(() -> RobotContainer.m_drivetrain.tankDrive(0, 0), RobotContainer.m_drivetrain),
+	// 			PneumaticCommands.pistonExtend());
+	// }
 }
